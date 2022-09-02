@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.VNRobot.FunctionalRobot;
 @TeleOp(name = "Functional")
 public class Functional extends OpMode {
     private FunctionalRobot robot;
+
     @Override
     public void init() {
         robot = new FunctionalRobot(this);

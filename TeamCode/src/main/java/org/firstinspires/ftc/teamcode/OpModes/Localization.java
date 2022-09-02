@@ -24,20 +24,20 @@ public class Localization extends LinearOpMode {
 
         waitForStart();
 
-        while(opModeIsActive()) {
-            if(gamepad1.triangle) {
+        while (opModeIsActive()) {
+            if (gamepad1.triangle) {
                 odometry.resetPosition(new Pose2d(0, 0, new Rotation2d(0)), new Rotation2d(0));
             }
             odometry.update(
                     new Rotation2d(robot.getIMU().getYaw()),
-                    robot.getDrivebase().getLeftPosition()/300*0.09*Math.PI,
-                    robot.getDrivebase().getRightPosition()/300*0.09*Math.PI);
+                    robot.getDrivebase().getLeftPosition() / 300 * 0.09 * Math.PI,
+                    robot.getDrivebase().getRightPosition() / 300 * 0.09 * Math.PI);
             robot.updateAngle(odometry.getPoseMeters().getHeading());
-            robot.updateCoordinate(odometry.getPoseMeters().getX()*39.3701, odometry.getPoseMeters().getY()*39.3701);
+            robot.updateCoordinate(odometry.getPoseMeters().getX() * 39.3701, odometry.getPoseMeters().getY() * 39.3701);
             robot.updateTelemetry(
                     odometry.getPoseMeters().getHeading(),
-                    odometry.getPoseMeters().getX()*39.3701,
-                    odometry.getPoseMeters().getY()*39.3701);
+                    odometry.getPoseMeters().getX() * 39.3701,
+                    odometry.getPoseMeters().getY() * 39.3701);
 
             robot.runOpMode();
         }

@@ -19,10 +19,9 @@ public class CollisionDetection {
         XpreAccel = XcurrAccel;
         YpreAccel = YcurrAccel;
 
-        if((Math.abs(JerkX) > Constants.COLLISION.KD) || (Math.abs(JerkY) > Constants.COLLISION.KD)) {
+        if ((Math.abs(JerkX) > Constants.COLLISION.KD) || (Math.abs(JerkY) > Constants.COLLISION.KD)) {
             collisionDetected = true;
-        }
-        else if ((Math.abs(JerkX) < Constants.COLLISION.KD) && (Math.abs(JerkY) < Constants.COLLISION.KD)) {
+        } else if ((Math.abs(JerkX) < Constants.COLLISION.KD) && (Math.abs(JerkY) < Constants.COLLISION.KD)) {
             collisionDetected = false;
         }
     }

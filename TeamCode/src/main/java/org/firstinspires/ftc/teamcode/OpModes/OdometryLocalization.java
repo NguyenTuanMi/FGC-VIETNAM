@@ -8,10 +8,16 @@ import org.firstinspires.ftc.teamcode.VNRobot.OdometryRobot;
 @TeleOp(name = "Odometry")
 public class OdometryLocalization extends OpMode {
     private OdometryRobot robot;
+
     @Override
     public void init() {
         robot = new OdometryRobot(this);
         robot.init();
+    }
+
+    @Override
+    public void start() {
+        robot.start();
     }
 
     @Override

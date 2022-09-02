@@ -6,22 +6,23 @@ import com.arcrobotics.ftclib.geometry.Twist2d;
 
 public class Odometry {
     private Pose2d robotPose;
-    private Rotation2d gyroOffset;
+    private final Rotation2d gyroOffset;
     private Rotation2d previousAngle;
 
     private double left_previous;
     private double right_previous;
     private double perpen_previous;
 
-    public Odometry (Pose2d initialPose, Rotation2d gyroInitialAngle) {
+    public Odometry(Pose2d initialPose, Rotation2d gyroInitialAngle) {
         this.robotPose = initialPose;
         this.gyroOffset = initialPose.getRotation().minus(gyroInitialAngle);
+        this.previousAngle = gyroInitialAngle;
         left_previous = 0;
         right_previous = 0;
         perpen_previous = 0;
     }
 
-    public Odometry (Pose2d initialPose, Rotation2d gyroInitialAngle, Rotation2d offset) {
+    public Odometry(Pose2d initialPose, Rotation2d gyroInitialAngle, Rotation2d offset) {
         this.robotPose = initialPose;
         this.gyroOffset = offset;
         this.previousAngle = gyroInitialAngle;
@@ -40,7 +41,7 @@ public class Odometry {
         right_previous = rightLocation;
         perpen_previous = perpenLocation;
 
-        double centerMovement = (delta_left + delta_right)/2;
+        double centerMovement = (delta_left + delta_right) / 2;
 
         Rotation2d angle = currentIMU.plus(gyroOffset);
 
